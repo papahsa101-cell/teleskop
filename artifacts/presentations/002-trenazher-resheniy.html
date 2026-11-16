@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Тренажёр управленческих решений — мини-презентация 002</title>
+<meta name="description" content="Шесть слайдов по идее 002: суть, проблема и аудитория, механизм, допущения экономики, риски, первый тест.">
+<style>
+*{box-sizing:border-box}
+:root{--u:1px;--ink:#000;--paper:#fff;--mid:#5f5f5f;--hair:#000;--hair2:#c9c9c9;--ghost:#f0f0f0}
+@media screen{:root{--u:min(calc((100vw - 36px)/1280), calc((100vh - 36px)/720))}}
+html,body{margin:0;padding:0}
+body{background:#e6e6e6;color:var(--ink);font-family:"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.slide{position:relative;width:calc(1280*var(--u));height:calc(720*var(--u));background:var(--paper);
+  margin:calc(18*var(--u)) auto;overflow:hidden;box-shadow:0 0 0 1px #c4c4c4}
+.pad{position:absolute;inset:0;padding:calc(44*var(--u)) calc(68*var(--u)) calc(34*var(--u));
+  display:flex;flex-direction:column}
+.rail{display:flex;justify-content:space-between;align-items:baseline;gap:calc(20*var(--u));
+  border-bottom:calc(1*var(--u)) solid var(--hair);padding-bottom:calc(12*var(--u));
+  font-size:calc(11*var(--u));letter-spacing:.16em;text-transform:uppercase;line-height:1.4}
+.rail .r{color:var(--mid)}
+.body{flex:1;min-height:0;padding-top:calc(40*var(--u));display:flex;flex-direction:column}
+.foot{display:flex;justify-content:space-between;align-items:baseline;gap:calc(20*var(--u));
+  border-top:calc(1*var(--u)) solid var(--hair2);padding-top:calc(10*var(--u));
+  font-size:calc(10*var(--u));letter-spacing:.14em;text-transform:uppercase;color:var(--mid)}
+h1,h2{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:400}
+
+/* титул */
+.ghost{position:absolute;top:calc(-8*var(--u));right:calc(0*var(--u));
+  font-family:Georgia,serif;font-size:calc(148*var(--u));line-height:.9;color:#ededed;
+  letter-spacing:-.05em;pointer-events:none}
+.tt{position:relative;display:flex;flex-direction:column;height:100%}
+.kicker{font-size:calc(12*var(--u));letter-spacing:.22em;text-transform:uppercase;color:var(--mid)}
+.tt h1{font-size:calc(74*var(--u));line-height:1;letter-spacing:-.032em;margin:calc(18*var(--u)) 0 0;max-width:calc(920*var(--u))}
+.rule{height:calc(1*var(--u));background:var(--ink);width:calc(120*var(--u));margin:calc(24*var(--u)) 0 calc(18*var(--u))}
+.sub{font-family:Georgia,serif;font-size:calc(24*var(--u));line-height:1.3;margin:0 0 calc(14*var(--u));max-width:calc(900*var(--u))}
+.lead{font-size:calc(18.5*var(--u));line-height:1.5;color:#1d1d1d;margin:0;max-width:calc(720*var(--u))}
+.agenda{margin:calc(26*var(--u)) 0 0;font-size:calc(11*var(--u));letter-spacing:.15em;
+  text-transform:uppercase;color:#6f6f6f;line-height:1.9;max-width:calc(1020*var(--u))}
+.tmeta{margin:auto 0 calc(6*var(--u));display:flex;justify-content:space-between;align-items:flex-end;gap:calc(30*var(--u));
+  border-top:calc(1*var(--u)) solid var(--hair2);padding-top:calc(12*var(--u));
+  font-size:calc(11*var(--u));letter-spacing:.13em;text-transform:uppercase;color:var(--mid)}
+
+/* общий заголовок содержательного слайда */
+.h2{font-size:calc(42*var(--u));line-height:1.06;letter-spacing:-.02em;max-width:calc(980*var(--u))}
+
+/* split: тезис + строки */
+.split{display:grid;grid-template-columns:calc(430*var(--u)) minmax(0,1fr);gap:calc(58*var(--u));
+  margin-top:calc(26*var(--u));flex:1;min-height:0;align-items:center}
+.statement{font-family:Georgia,serif;font-size:calc(24*var(--u));line-height:1.38;margin:0;letter-spacing:-.005em}
+.rows{display:flex;flex-direction:column;height:100%}
+.rows > .row{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center}
+.row{border-top:calc(1*var(--u)) solid var(--hair2);padding:calc(13*var(--u)) 0 calc(13*var(--u))}
+.row:first-child{border-top:0;padding-top:0}
+.row .lab{font-size:calc(10*var(--u));letter-spacing:.16em;text-transform:uppercase;color:var(--mid);margin-bottom:calc(5*var(--u))}
+.row .tx{font-size:calc(17*var(--u));line-height:1.44;margin:0}
+.note{font-size:calc(13*var(--u));line-height:1.5;color:var(--mid);margin:calc(14*var(--u)) 0 0;max-width:calc(980*var(--u))}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 calc(56*var(--u));
+  grid-auto-rows:minmax(0,1fr);height:100%;margin-top:calc(26*var(--u))}
+.step{align-self:start}
+.step{border-top:calc(1*var(--u)) solid var(--ink);padding:calc(13*var(--u)) calc(10*var(--u)) calc(16*var(--u)) 0}
+.step .n{font-size:calc(10*var(--u));letter-spacing:.16em;color:var(--mid);display:block;margin-bottom:calc(8*var(--u))}
+.step .tx{font-size:calc(18*var(--u));line-height:1.45;margin:0;max-width:calc(500*var(--u))}
+.fnotespace{margin-top:auto}
+.fnote{font-size:calc(14*var(--u));line-height:1.5;color:var(--mid);margin:calc(18*var(--u)) 0 0;
+  border-top:calc(1*var(--u)) solid var(--hair2);padding-top:calc(12*var(--u));max-width:calc(1000*var(--u))}
+
+/* ledger (допущения экономики) */
+.ledger{margin-top:calc(26*var(--u));display:flex;flex-direction:column;height:100%}
+.lrow{flex:1 0 auto;align-content:center}
+.body > .stmt-sm{margin:calc(24*var(--u)) 0 0;font-family:Georgia,serif;font-size:calc(21*var(--u));
+  line-height:1.42;color:#3a3a3a;max-width:calc(940*var(--u))}
+.lrow{display:grid;grid-template-columns:calc(150*var(--u)) minmax(0,1fr);gap:calc(26*var(--u));
+  border-top:calc(1*var(--u)) solid var(--hair2);padding:calc(11*var(--u)) 0;align-items:center}
+.lrow:first-child{border-top:0}
+.tag{font-size:calc(9.5*var(--u));letter-spacing:.15em;text-transform:uppercase;color:var(--mid);
+  padding-top:calc(4*var(--u));display:block}
+.ltx{font-size:calc(16.5*var(--u));line-height:1.42;margin:0}
+
+/* risks */
+.risks{margin-top:calc(24*var(--u));display:flex;flex-direction:column;flex:1;min-height:0}
+.risk{flex:1 0 auto}
+.risk{display:grid;grid-template-columns:calc(46*var(--u)) minmax(0,1fr) calc(110*var(--u));
+  gap:calc(18*var(--u));border-top:calc(1*var(--u)) solid var(--hair2);padding:calc(12*var(--u)) 0;align-items:center}
+.risk:first-child{border-top:0}
+.risk .rn{font-family:Georgia,serif;font-size:calc(15*var(--u));color:var(--mid)}
+.risk .tx{font-size:calc(17.5*var(--u));line-height:1.4;margin:0}
+.risk .tag{text-align:right;padding-top:calc(5*var(--u))}
+
+/* test slide */
+.test{display:grid;grid-template-columns:minmax(0,calc(470*var(--u))) minmax(0,1fr);gap:calc(56*var(--u));
+  margin-top:calc(22*var(--u));flex:1;min-height:0}
+.tleft{display:flex;flex-direction:column}
+.tlead{font-size:calc(17.5*var(--u));line-height:1.55;margin:calc(22*var(--u)) 0 0;color:#1d1d1d}
+.verdict{margin-top:auto;padding-top:calc(18*var(--u));border-top:calc(1*var(--u)) solid var(--ink)}
+.verdict .lab{font-size:calc(9.5*var(--u));letter-spacing:.16em;text-transform:uppercase;color:var(--mid);display:block}
+.verdict .w{font-family:Georgia,serif;font-size:calc(46*var(--u));line-height:1.05;letter-spacing:-.02em;display:block;margin-top:calc(6*var(--u))}
+.verdict .vl{font-size:calc(13.5*var(--u));line-height:1.45;color:var(--mid);margin:calc(8*var(--u)) 0 0;max-width:calc(420*var(--u))}
+.tright{display:flex;flex-direction:column}
+
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  :root{--u:1px}
+  html,body{background:#fff}
+  .slide{margin:0;box-shadow:none;break-after:page;page-break-after:always}
+  .slide:last-of-type{break-after:auto;page-break-after:auto}
+}
+</style>
+</head>
+<body>
+<section class="slide" id="s1">
+<div class="pad">
+  <header class="rail"><span>Телескоп / проект 02</span><span class="r">Телескоп</span></header>
+  <div class="body"><div class="tt">
+    <div class="ghost" aria-hidden="true">002</div>
+    <div class="kicker">Замысел / сохранено</div>
+    <h1>Тренажёр управленческих решений</h1>
+    <div class="rule"></div>
+    <p class="sub">Рабочий кейс, связанные проблемы, разбор последствий.</p>
+    <p class="lead">Кейс с целью, сроком и ограничениями. Затем добавляются проблемы: сотрудника нет, требования изменились, конфликт, дефект, срыв зависимости. Игрок предлагает решение и получает разбор.</p>
+    <p class="agenda">Далее / проблема и аудитория / механизм / допущения экономики / риски / первый тест</p>
+    <div class="tmeta"><span>Статус: Сохранено, реализация не поручена</span><span>6 слайдов / 16:9</span></div>
+  </div></div>
+  <footer class="foot"><span>01 / 06</span><span>Замысел Павла / разбор одной модели DeepSeek</span></footer>
+</div>
+</section>
+<section class="slide" id="s2">
+<div class="pad">
+  <header class="rail"><span>002 / Проблема и аудитория</span><span class="r">Телескоп</span></header>
+  <div class="body">
+    <h2 class="h2">Правильного ответа нет, а ошибка дорога</h2>
+    <div class="split"><p class="statement">Руководитель учится на реальных ошибках, а они стоят денег и доверия. Тест проверяет знание верного ответа, которого в работе нет.</p><div class="rows"><div class="row"><div class="lab">Проблема</div><p class="tx">Тренировка на живом проекте рискованна, а разбор собственного решения обычно негде получить. Обратной связи по управленческим ходам почти нет.</p></div><div class="row"><div class="lab">Аудитория</div><p class="tx">Руководители и участники разработки программных продуктов, прежде всего банковского ПО. Ценность выше для тех, кто уже принимает решения.</p></div><div class="row"><div class="lab">Ожидание</div><p class="tx">Обратная связь важнее интерфейса. Бот сам по себе ценности не создаёт, ценность в качестве разбора.</p></div></div></div><p class="note">Формат похожий на тест с баллом читается как скрытая проверка человека.</p>
+  </div>
+  <footer class="foot"><span>02 / 06</span><span>Проверка, не запуск</span></footer>
+</div>
+</section>
+<section class="slide" id="s3">
+<div class="pad">
+  <header class="rail"><span>002 / Механизм</span><span class="r">Телескоп</span></header>
+  <div class="body">
+    <h2 class="h2">Кейс, решение, последствия, разбор</h2>
+    <div class="steps"><div class="step"><span class="n">01</span><p class="tx">Кейс задаёт роль, цель, срок и ограничения.</p></div><div class="step"><span class="n">02</span><p class="tx">Игрок уточняет ситуацию и отделяет известное от неизвестного.</p></div><div class="step"><span class="n">03</span><p class="tx">Предлагает решение голосом или текстом в Telegram.</p></div><div class="step"><span class="n">04</span><p class="tx">Сложность зависит от количества и сочетания проблем.</p></div><div class="step"><span class="n">05</span><p class="tx">Система показывает последствия решения.</p></div><div class="step"><span class="n">06</span><p class="tx">Роли-рецензенты разбирают плюсы, минусы, риски и рекомендации. Затем повтор с другим решением.</p></div></div><div class="fnotespace"></div><p class="fnote">Цель и допустимые компромиссы заданы в кейсе. Единственный правильный ответ не предполагается.</p>
+  </div>
+  <footer class="foot"><span>03 / 06</span><span>Проверка, не запуск</span></footer>
+</div>
+</section>
+<section class="slide" id="s4">
+<div class="pad">
+  <header class="rail"><span>002 / Допущения экономики</span><span class="r">Телескоп</span></header>
+  <div class="body">
+    <h2 class="h2">Что покрывает оценка 20–35 часов</h2>
+    <p class="stmt-sm">Оценка относится к одному сценарному прототипу с правилами и калибровкой рецензирования при участии эксперта.</p><div class="ledger"><div class="lrow"><span class="tag">Не входит</span><p class="ltx">Каталог сценариев, голосовой интерфейс, эксплуатация, корпоративные интеграции.</p></div><div class="lrow"><span class="tag">Предложение</span><p class="ltx">10–15 шаблонов, три уровня сложности, 3–5 ходов, три роли-рецензента и арбитр. Предложение, а не требование и не готовность.</p></div><div class="lrow"><span class="tag">Неизвестно</span><p class="ltx">Кто калибрует оценки, по какой рубрике и сколько времени эксперта это займёт.</p></div><div class="lrow"><span class="tag">Неизвестно</span><p class="ltx">Смета интеграций не рассчитана. Подписку на отдельное приложение нельзя предполагать автоматически.</p></div></div><div class="fnotespace"></div><p class="fnote">Числовая смета модуля реальных проектов и модуля переговоров не рассчитана.</p>
+  </div>
+  <footer class="foot"><span>04 / 06</span><span>Проверка, не запуск</span></footer>
+</div>
+</section>
+<section class="slide" id="s5">
+<div class="pad">
+  <header class="rail"><span>002 / Риски</span><span class="r">Телескоп</span></header>
+  <div class="body">
+    <h2 class="h2">Где идея ломается</h2>
+    <div class="risks"><div class="risk"><span class="rn">01</span><p class="tx">Достоверность оценки и последствий. Согласие нескольких моделей не создаёт правильного ответа.</p><span class="tag">факт источника</span></div><div class="risk"><span class="rn">02</span><p class="tx">Оценка может незаметно съехать с ролей, загрузки и зависимостей на суждение о личных качествах людей.</p><span class="tag">гипотеза</span></div><div class="risk"><span class="rn">03</span><p class="tx">Тренажёр, который уверенно одобряет плохие решения, хуже бесполезного теста.</p><span class="tag">факт источника</span></div><div class="risk"><span class="rn">04</span><p class="tx">Формат читается как скрытая аттестация сотрудника, и ответы становятся осторожными.</p><span class="tag">гипотеза</span></div><div class="risk"><span class="rn">05</span><p class="tx">Банковские и персональные данные нельзя отправлять во внешние модели и Telegram без отдельного разрешения.</p><span class="tag">факт источника</span></div></div>
+  </div>
+  <footer class="foot"><span>05 / 06</span><span>Проверка, не запуск</span></footer>
+</div>
+</section>
+<section class="slide" id="s6">
+<div class="pad">
+  <header class="rail"><span>002 / Первый тест</span><span class="r">Телескоп</span></header>
+  <div class="body">
+    <h2 class="h2">Один кейс на вымышленных данных</h2>
+    <div class="test"><div class="tleft"><p class="tlead">Цель, срок, ограничения, три связанные проблемы. Пройти с Павлом и ещё одним опытным руководителем, сравнить их разбор с модельным и записать расхождения.</p><div class="verdict"><span class="lab">Вывод совета</span><span class="w">Проверить</span><p class="vl">Проверять качество разбора на одном кейсе, а не строить бота.</p></div></div><div class="tright rows"><div class="row"><div class="lab">Не входит</div><p class="tx">Бот, голос, корпоративные данные, каталог сценариев, автоматическая оценка.</p></div><div class="row"><div class="lab">Обратимость</div><p class="tx">Обратимо. Текстовый документ и один разговор, доступа к данным не возникает.</p></div><div class="row"><div class="lab">Что подтвердить</div><p class="tx">Совпадает ли модельный разбор с оценкой двух руководителей на двух-трёх разных решениях одного кейса.</p></div><div class="row"><div class="lab">Цифры</div><p class="tx">20–35 человеко-часов относятся к прототипу. Ручная проверка кейса дешевле и в эту цифру не входит.</p></div></div></div>
+  </div>
+  <footer class="foot"><span>06 / 06</span><span>Проверка, не запуск</span></footer>
+</div>
+</section>
+<script>
+document.addEventListener('keydown',function(e){if(e.key==='p'||e.key==='P'){e.preventDefault();window.print();}});
+
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  function go(i){ if(i<0||i>=slides.length) return; slides[i].scrollIntoView({block:'center'}); }
+  document.addEventListener('keydown',function(e){
+    var cur=0, best=1e9;
+    slides.forEach(function(s,k){ var d=Math.abs(s.getBoundingClientRect().top-18); if(d<best){best=d;cur=k;} });
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); go(cur+1); }
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); go(cur-1); }
+    if(e.key==='Home'){ e.preventDefault(); go(0); }
+    if(e.key==='End'){ e.preventDefault(); go(slides.length-1); }
+  });
+})();
+
+</script>
+</body>
+</html>
